@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About -- LMS</title>
+    <link rel="stylesheet" href="{% static 'App1.css' %}">
+</head>
+<body>
+    <div class="about">
+        {% block content %}
+            <h2>Welcome to Library Management System</h2>
+            <p>The Library Management System (LMS) is a platform where users can manage books efficiently. It enables 
+                adding new books, accessing book details from a database, and maintaining a structured inventory. The 
+                system is organized for better management, making it ideal for libraries or bookstores to streamline
+                 operations and enhance user experience.</p>
+        {% endblock content %}
+    </div>
+    <a href="{% url 'home' %}" class="back">Back</a>
+</body>
+</html>

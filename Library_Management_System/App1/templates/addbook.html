@@ -1,0 +1,40 @@
+{% extends 'home.html' %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Book -- LMS</title>
+    <link rel="stylesheet" href="{% static 'App1.css' %}">
+</head>
+<body>
+    
+    {% block content %}
+    <div class="form1">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <h2>Add Book</h2>
+        
+        <label for="">Book Name</label>
+        <input type="text" name="bookname" id="bookname" required> <br>
+
+        <label for="">ISBN number</label>
+        <input type="number" name="isbn" id="isbn" required> <br>
+
+        <label for="">Quantity</label>
+        <input type="number" name="quantity" id="quantity" required> <br>
+
+        <label for="">Author</label>
+        <input type="text" name="author" id="author" required> <br>
+
+        <button>ADD</button>
+    </form>
+    </div>
+    {% endblock content %}
+    
+        
+</body>
+</html>

@@ -1,0 +1,82 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student List</title>
+    <link rel="stylesheet" href="{% static 'App1.css' %}">
+    <style>
+        table{
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 55rem;
+        }
+
+        .table-container {
+            margin-top: -8rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(2rem);
+        }
+
+        th{
+            border: 2px solid black;
+            width: 5rem;
+            height: 1rem;
+            background-color: aquamarine;
+            padding: 1rem;
+            font-size: 22px;
+        }
+
+        td{
+            border: 2px solid black;
+            height: 30px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            padding: .2rem;
+            background-color: #d5fffe;
+        }
+
+        h2{
+            background-color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="student-list">
+        <h2>Issued Books List</h2>
+        <table>
+            <tr>
+                <th>Student Name</th>
+                <th>Student RollNo</th>
+                <th>Student Branch</th>
+                <th>Book Name</th>
+                <th>ISBN No.</th>
+                <th>Issue Date</th>
+            </tr>
+    
+            {% for i in issueList %}
+                <tr>
+                    <td>{{i.Student_name}}</td>
+                    <td>{{i.Student_roll}}</td>
+                    <td>{{i.Student_branch}}</td>
+                    <td>{{i.book_name}}</td>
+                    <td>{{i.ISBN}}</td>
+                    <td>{{i.Issue_date|date:"d/M/y"}}</td>
+                    <td><input type="checkbox">Return</td>
+                    <br>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <a href="{% url 'home' %}" class="back">Back</a>
+</body>
+</html>

@@ -1,0 +1,59 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue Book</title>
+    <link rel="stylesheet" href="{% static 'App1.css' %}">
+    <style>
+        a{
+            color: rgb(0, 4, 255);
+            text-align: center;
+            border-radius: 1rem;
+            background-color: white;
+            padding: .5rem;
+            text-decoration: none;
+            font-size: 25px;
+            font-weight: bold;
+            margin-top: 20%;
+            margin-left: 40%;
+            width: 100%;
+        }
+
+        a:hover{
+            transition: .5s ease-in-out;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="POST" class="IssueForm">
+        {% csrf_token %}
+        <h2>Issue Book</h2>
+
+        <label for="">Student Name</label>
+        <input type="text" name="studentname" id="studentname" required> <br>
+
+        <label for="">Student RollNo</label>
+        <input type="number" name="rollno" id="rollno"  required> <br>
+
+        <label for="">Student Branch</label>
+        <input type="text" name="branch" id="branch"  required> <br>
+
+        <label for="">Book Name</label>
+        <input type="text" name="bookname" id="bookname" value="{{a.book_name}}" required readonly> <br>
+
+        <label for="">ISBN number</label>
+        <input type="number" name="isbn" id="isbn" value="{{a.ISBN}}" required readonly> <br>
+
+        <label for="">Issue Date</label>
+        <input type="date" name="issuedate" id="issuedate" required> <br>
+
+        <button>Issue</button>
+
+        <a href="{% url 'home' %}">Back</a>
+    </form>
+</body>
+</html>
